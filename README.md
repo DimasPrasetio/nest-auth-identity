@@ -65,16 +65,23 @@ Application prerequisites:
 
 ## Installation
 
-During MVP, install this package directly from the public GitHub repository.
+Current distribution status:
 
-```bash
-npm install github:DimasPrasetio/nest-auth-identity
-```
+- The package is available from the public GitHub repository.
+- The package is not published to the npm registry yet.
+- The package name remains `@elcodelabs/nest-auth-identity`, so application code imports from `@elcodelabs/nest-auth-identity` after installation.
+- Because installation comes from GitHub, the consuming machine needs Git, Node.js, npm, and access to `github.com`.
 
-For a pinned version, install from a Git tag.
+Recommended installation for applications:
 
 ```bash
 npm install github:DimasPrasetio/nest-auth-identity#v0.1.0
+```
+
+Install from the latest `main` branch only when you intentionally want the newest development state:
+
+```bash
+npm install github:DimasPrasetio/nest-auth-identity#main
 ```
 
 SSH installation is also supported when the consuming machine has GitHub SSH access.
@@ -83,7 +90,15 @@ SSH installation is also supported when the consuming machine has GitHub SSH acc
 npm install git+ssh://git@github.com/DimasPrasetio/nest-auth-identity.git
 ```
 
-For local package validation:
+This repository does not commit `dist/`. npm runs the package `prepare` script during GitHub installation, so the package is built during install before it is linked into the consuming application.
+
+Do not use this command yet because the package has not been published to npmjs.com:
+
+```bash
+npm install @elcodelabs/nest-auth-identity
+```
+
+For local package validation inside this repository:
 
 ```bash
 npm pack
